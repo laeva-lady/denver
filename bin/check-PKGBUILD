@@ -1,0 +1,11 @@
+#!/usr/bin/bash
+
+
+url="https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=$1"
+
+content=$(curl -s "$url")
+
+tmpfile=$(mktemp)
+echo "$content" > $tmpfile
+nvim "$tmpfile"
+rm "$tmpfile"
