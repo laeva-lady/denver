@@ -1,0 +1,80 @@
+@import "~/.config/rofi/config.rasi"
+
+configuration {
+  modi: "drun";
+}
+
+* {
+    background-color: transparent;
+    text-color:       #DCD7BA;  /* OldWhite */
+    font:             "FiraCode Retina 14";
+}
+
+window {
+  width: 75%;
+  height: inherit;
+  background-color: #1F1F28;  /* WaveBlue1 */
+}
+
+mainbox {
+  children: [ "inputbar", "listview" ];
+}
+
+inputbar {
+  background-color: #2A2A37;  /* SumiInk2 */
+  text-color:       #DCD7BA;  /* OldWhite */
+  border-radius: 6px;
+  padding: 8px;
+}
+
+entry {
+  expand: true;
+  placeholder: " 🎞️ Search";
+  text-color: #DCD7BA;  /* OldWhite */
+}
+
+listview {
+  columns: 4;
+  lines: 3;
+  spacing: 20px;
+  padding: 10px;
+  flow: horizontal;
+  fixed-width: true;
+  fixed-height: true;
+  cycle: true;
+}
+
+element {
+  orientation: vertical;
+  padding: 0px;
+  spacing: 0px;
+  border-radius: 10px;
+  background-color: #363646;  /* SumiInk3 */
+  margin: 4px;
+}
+
+element normal {
+  background-color: transparent;
+}
+
+element selected.normal {
+  background-color: #7FB4CA;  /* WaveAqua1 */
+  text-color:       #E6C384;  /* WaveYellow1 */
+}
+
+element-icon {
+  text-color: inherit;
+  size: 10%;
+  margin: -30px;
+  cursor: inherit;
+}
+
+element-text {
+  background-color: #223249;  /* SumiInk4 */
+  text-color:       #DCD7BA;  /* OldWhite */
+  vertical-align: 0.5;
+  horizontal-align: 0.5;
+  padding: 6px;
+  margin: 6px;
+  border-radius: 6px;
+}

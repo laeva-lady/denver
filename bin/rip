@@ -1,0 +1,9 @@
+#!/usr/bin/bash
+
+fiel="$WORKSTATION/rip.sh"
+chmod +x "$fiel"
+
+echo "opening nvim"
+nvim "$fiel"
+echo "running script"
+bash "$fiel"

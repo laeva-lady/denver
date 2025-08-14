@@ -1,0 +1,106 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 16,
+    "spacing": 2,
+    // "margin-left": 5,
+    // "margin-top": 5,
+    // "margin-bottom": 5,
+    "modules-left": [
+        "custom/sep",
+        "clock",
+        "custom/sep",
+        "pulseaudio",
+        "custom/sep",
+        "mpris"
+    ],
+    "modules-center": [
+        "hyprland/workspaces"
+    ],
+    "modules-right": [
+        "tray",
+        "custom/sep",
+        "hyprland/language",
+        "custom/sep"
+    ],
+    "mpris": {
+        "format": "{player_icon} {dynamic}",
+        "format-paused": "{status_icon} <i>{dynamic}</i>",
+        "player-icons": {
+            "default": "▶",
+            "mpv": "🎵"
+        },
+        "status-icons": {
+            "paused": "⏸"
+        },
+        "player_exclude": [
+            "reddit"
+        ],
+        "max-length": 60
+    },
+    "custom/power": {
+        "format": "パワー",
+        "on-click": "wlogout"
+    },
+    "custom/pron": {
+        "rotate": 90,
+        "format": "Pr0n : {}",
+        "exec": "~/.config/waybar/scripts/pron-size.sh",
+        "interval": 1000
+    },
+    "custom/sep": {
+        "format": "|"
+    },
+    "hyprland/workspaces": {
+        "format": " {name}",
+        "on-click": "activate",
+        "on-scroll-up": "hyprctl dispatch workspace e-1",
+        "on-scroll-down": "hyprctl dispatch workspace e+1"
+    },
+    "hyprland/window": {
+        "rotate": 90,
+        "format": "{} ",
+        "max-length": 30
+    },
+    "hyprland/language": {
+        "format": "{}",
+        "format-en": "EN",
+        "format-fr": "CA",
+        "format-de": "DE",
+        "format-pl": "PL"
+    },
+    "clock": {
+        "tooltip": true,
+        "format": "{:%y/%m/%d|%H:%M}",
+        "tooltip-format": "{:%Y-%m-%d}"
+    },
+    "tray": {
+        "icon-size": 18,
+        "show-passive-items": "true"
+    },
+    "temperature": {
+        "rotate": 90,
+        "hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input",
+        "critical-threshold": 80,
+        "format": "{icon} {temperatureC}°C",
+        "format-icons": [
+            "",
+            "",
+            ""
+        ]
+    },
+    "pulseaudio": {
+        "format": "{volume}",
+        "format-bluetooth": "{volume}%",
+        "format-muted": "{volume}%",
+        "format-icons": {
+            "default": [
+                "",
+                ""
+            ]
+        },
+        "scroll-step": 2,
+        "on-click": "hyprctl dispatch exec pavucontrol",
+        "on-click-right": "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
+    }
+}

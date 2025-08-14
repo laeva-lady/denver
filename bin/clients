@@ -1,0 +1,9 @@
+#!/usr/bin/bash
+
+hyprctl clients -j | jq -r '.[] | [.class, (.pid|tostring), (.xwayland|tostring), .workspace.id, .workspace.name] | @tsv' | \
+    awk -F'\t'\
+    '{printf "class: %-25s pid: %-8s xwayland: %-10s workspace: (%3s) %-10s\n", $1, $2, $3, $4, $5, $6}'
+
+echo
+
+hyprctl activewindow -j | jq -r '[.class, .workspace.name] | @tsv' |  awk '{printf "active window: %25s [%s]\n", $1, $2}'

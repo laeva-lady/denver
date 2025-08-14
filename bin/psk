@@ -1,0 +1,6 @@
+#!/usr/bin/bash
+
+
+printf '\e[?7l'
+ps -eo pid,cmd | grep -i "$1" | grep -v grep | grep -v psk
+printf '\e[?7h'

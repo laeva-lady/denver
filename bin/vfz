@@ -1,0 +1,4 @@
+#!/usr/bin/bash
+
+file=$(fzf --preview "bat --color=always --style=numbers --line-range=:500 {}")
+[ -n "$file" ] && nvim "$file"

@@ -1,0 +1,16 @@
+#!/usr/bin/bash
+
+# Clear any old symlinks
+find "$HOME/.local/bin" -type l -name 'cmds-*' -delete
+
+# Link scripts in $WORKSTATION/cmds
+for f in "$WORKSTATION"/cmds/*; do
+    [ -f "$f" ] || continue
+    ln -sf "$f" "$HOME/.local/bin/cmds-$(basename "$f")"
+done
+
+# Link scripts in $WORKSTATION/cmds/installs
+for f in "$WORKSTATION"/cmds/installs/*; do
+    [ -f "$f" ] || continue
+    ln -sf "$f" "$HOME/.local/bin/cmds-installs-$(basename "$f")"
+done
