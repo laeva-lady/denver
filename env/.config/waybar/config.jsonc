@@ -13,26 +13,16 @@
         "clock",
         "custom/sep",
         "pulseaudio"
-        // "custom/sep",
-        // "custom/music"
     ],
     "modules-center": [
         "hyprland/workspaces"
     ],
     "modules-right": [
-        // "custom/pron",
-        // "custom/sep",
         "tray",
         "custom/sep",
         "hyprland/language",
-        "custom/sep",
+        "custom/sep"
     ],
-    "mpris": {
-        //"rotate": 90,
-        "format": "|>",
-        "format-paused": "||"
-        // "max-length": 50
-    },
     "custom/power": {
         "rotate": 90,
         "format": "パワー",
