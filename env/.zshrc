@@ -9,7 +9,8 @@ export PATH="$HOME/.local/bin:$PATH"
 export WORKSTATION="$HOME/personal/denver"
 export PATH="$WORKSTATION/bin:$PATH"
 
-export PKG_PATH_YAML="$WORKSTATION/resources/pkg.yaml"
+# export PKG_PATH_YAML="$WORKSTATION/resources/pkg.yaml"
+export PKG_PATH_TXT="$WORKSTATION/resources/pkg.txt"
 export BROWSER_CONFIG_PATH="$HOME/.zen/crjkc5yv.Default (release)"
 
 
@@ -39,8 +40,6 @@ PROMPT='%(?.%F{green}>.%F{red}>)%f %F{cyan}[%f%F{blue}%~%f%F{cyan}]%f${vcs_info_
 ;%f '
 # RPROMPT='%F{8} %* $(battery)%% %f'
 
-
-# opam configuration
 [[ ! -r '/home/kate/.opam/opam-init/init.zsh' ]] || source '/home/kate/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
 
 bindkey -s ^t "^utmux-sessionizer\n"
@@ -48,9 +47,7 @@ bindkey -s ^y "^uyazi-tmux\n"
 bindkey -s ^k "^udfz\n"
 bindkey -s ^f "^uvfz\n"
 bindkey -s ^e "^ucode .\n"
+bindkey -s ^q "^ukitty sh -c ranger\n"
 
-# if [[ -z "$(ps aux | pgrep tmux)" ]]; then
-#     tmux-sessionizer "$HOME"
-# fi
 
-# eval "$(starship init zsh)"
+[ -f "/home/kate/.ghcup/env" ] && . "/home/kate/.ghcup/env" # ghcup-env

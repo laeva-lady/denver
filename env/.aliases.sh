@@ -8,7 +8,7 @@ alias tt="tmux new-session -c"
 alias ff="fastfetch"
 
 alias chat="nvim ~/chat.md"
-alias zxcv="nvim ~/zxcv.md"
+alias zxcv="nvim ~/personal/zxcv.md"
 alias fair="nvim ~/personal/notes/todo.md"
 
 # listing
@@ -21,9 +21,10 @@ alias r="ranger"
 alias ..="cd .."
 alias rel="omz reload"
 
-alias denver="tmux-sessionizer $WORKSTATION"
+alias rin="tmux-sessionizer $WORKSTATION"
+alias not="tmux-sessionizer $HOME/personal/notes/"
 alias whore="tmux-sessionizer $HOME"
-alias notes="tmux-sessionizer $HOME/personal/notes/"
+alias why="tmux-sessionizer $HOME/personal"
 
 # ok you lazy as fuck mf
 alias g="git"

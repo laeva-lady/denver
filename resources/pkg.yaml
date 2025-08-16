@@ -5,6 +5,7 @@
   - fcitx5-mozc-ut
   - localsend-bin # share files locally
   - minecraft-launcher
+  - opencode-bin
   - protontricks # needed it to install webview for Forza Horizon
   - r2modman-bin
   - rider
@@ -153,6 +154,7 @@
   - yazi
   - zsh
 - to_organize:
+  - chromium
   - uv
 - wm:
   - cliphist
