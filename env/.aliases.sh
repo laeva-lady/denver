@@ -7,7 +7,7 @@ alias tt="tmux new-session -c"
 
 alias ff="fastfetch"
 
-alias chat="nvim ~/chat.md"
+alias chat="nvim ~/personal/chat.md"
 alias zxcv="nvim ~/personal/zxcv.md"
 alias fair="nvim ~/personal/notes/todo.md"
 

@@ -1,3 +1,6 @@
+require"kate.configs.filetypes"
+
+
 vim.opt.nu = true
 vim.opt.relativenumber = false
 
@@ -12,7 +15,6 @@ vim.api.nvim_create_autocmd("FileType", {
         vim.lsp.handlers["$/progress"] = function() end
     end
 })
-
 
 vim.api.nvim_create_autocmd("FileType", {
     pattern = { "haskell", "hs", "ocaml", "cpp", "cc" }, -- or any filetype
@@ -60,12 +62,6 @@ vim.opt.colorcolumn = "120"
 
 vim.opt.list = true
 vim.opt.listchars:append("space:·")
--- vim.opt.listchars:append("nbsp:␣")
--- vim.opt.listchars:append("rail:~")
--- vim.opt.listchars:append("ol:↴")
--- vim.opt.listchars:append("xtends:>")
--- vim.opt.listchars:append("recedes:<")
--- vim.opt.listchars:append("zws:⭲ ")
 
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
