@@ -5,6 +5,7 @@ return {
         -- version = '1.*',
         opts = {
             open_cmd = "brave %s > /dev/null 2>&1 &",
+            follow_cursor = true,
         },
     }
 }

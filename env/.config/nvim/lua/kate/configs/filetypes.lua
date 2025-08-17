@@ -27,8 +27,9 @@ vim.api.nvim_create_autocmd("FileType", {
         vim.opt.spell = true
         vim.opt.spelllang = { "en", "fr", "cjk" }
 
+        vim.opt.colorcolumn = "80"
         vim.opt.linebreak = true
-        vim.opt.textwidth = 120
+        vim.opt.textwidth = 80
         vim.opt.formatoptions:append("t")
     end
 })

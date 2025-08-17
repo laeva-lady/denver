@@ -2,8 +2,7 @@ alias v="nvim"
 alias vim="nvim"
 alias cim="nvim -u ~/.config/nvim/min-init.lua"
 
-alias t="tmux"
-alias tt="tmux new-session -c"
+alias t="tmux-sessionizer $(pwd)"
 
 alias ff="fastfetch"
 
