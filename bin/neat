@@ -18,6 +18,7 @@ aur=(
     wlogout
     wlrobs # plugin for OBS to record in wayland
     zen-browser-bin
+    brave-bin
     evince-no-gnome
 )
 
@@ -149,7 +150,6 @@ pkgs=(
     tree
     yazi
     zsh
-    chromium
     uv
     cliphist
     dunst

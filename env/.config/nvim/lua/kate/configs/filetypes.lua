@@ -22,10 +22,10 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "typst" },
+    pattern = { "typst", "md", "markdown" },
     callback = function()
         vim.opt.spell = true
-        vim.opt.spelllang = { "en", "fr" }
+        vim.opt.spelllang = { "en", "fr", "cjk" }
 
         vim.opt.linebreak = true
         vim.opt.textwidth = 120

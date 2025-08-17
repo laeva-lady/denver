@@ -8,7 +8,7 @@ confirm-close-surface = false
 # font-family = "Fira Code Retina"
 font-family = "IosevkaTerm NFM Light"
 
-font-size = 18
+font-size = 20
 
 gtk-wide-tabs = false
 gtk-tabs-location= bottom
