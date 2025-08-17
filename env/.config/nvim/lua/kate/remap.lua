@@ -15,6 +15,7 @@ set("n", "<leader>e", ":NvimTreeFocus<CR>")
 set("n", "<leader>hf", ":%!stylish-haskell<CR>")
 
 set({ "n", "v" }, ";", ":")
+set({ "n", "v" }, "!", ":!")
 
 set({ "n", "v", "i" }, "<C-s>", "<ESC>:w<CR>")
 

@@ -1,7 +1,7 @@
-require("kate.set")
 require("kate.remap")
 require("kate.lazy_init")
 require("kate.configs.status-bar")
+require("kate.set")
 
 local augroup = vim.api.nvim_create_augroup
 local kateGroup = augroup('kate', {})

@@ -10,9 +10,7 @@
         "custom/sep",
         "clock",
         "custom/sep",
-        "pulseaudio",
-        "custom/sep",
-        "mpris"
+        "pulseaudio"
     ],
     "modules-center": [
         "hyprland/workspaces"
