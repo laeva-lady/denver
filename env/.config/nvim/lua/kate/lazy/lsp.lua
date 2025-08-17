@@ -56,11 +56,14 @@ return {
                     local lspconfig = require("lspconfig")
                     lspconfig.lua_ls.setup {
                         capabilities = capabilities,
-                        root_dir = lspconfig.util.root_pattern({ "init.lua", "main.lua", "*.rockspec" }),
+                        root_dir = lspconfig.util.root_pattern({ "README.md", "init.lua", "main.lua", "*.rockspec" }),
                         settings = {
                             Lua = {
                                 runtime = {
                                     version = "LuaJIT"
+                                },
+                                workspace = {
+                                    vim.env.VIMRUNTIME
                                 },
                                 diagnostics = {
                                     globals = {
