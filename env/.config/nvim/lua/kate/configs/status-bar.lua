@@ -1,23 +1,3 @@
-function _G.git_status()
-    local dict = vim.b.gitsigns_status_dict
-    if not dict or dict.head == '' then
-        return ''
-    end
-
-    local parts = { dict.head }
-    if dict.added and dict.added > 0 then
-        table.insert(parts, '+' .. dict.added)
-    end
-    if dict.changed and dict.changed > 0 then
-        table.insert(parts, '~' .. dict.changed)
-    end
-    if dict.removed and dict.removed > 0 then
-        table.insert(parts, '-' .. dict.removed)
-    end
-
-    return table.concat(parts, ' ')
-end
-
 -- Put the functions in the global namespace so statusline can call them
 function _G.lsp_diagnostics()
     local bufnr    = vim.api.nvim_get_current_buf()
@@ -39,7 +19,7 @@ end
 function _G.lsp_status()
     local buf_clients = vim.lsp.get_active_clients({ bufnr = 0 })
     if next(buf_clients) == nil then
-        return "No LSP"
+        return ""
     end
 
     local names = {}
@@ -58,13 +38,11 @@ local function status_line()
     local lsp = " %{v:lua.lsp_status()}"
     local right_align = "%="
     local line_no = "%10([%l/%L%)]"
-    local git = " %{v:lua.git_status()}"
 
     return table.concat({
         file_name,
         modified,
         file_type,
-        git,
         right_align,
         diagnostics,
         lsp,

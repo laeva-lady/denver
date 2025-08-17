@@ -12,15 +12,15 @@
         "custom/sep",
         "clock",
         "custom/sep",
-        "pulseaudio"
+        "pulseaudio",
+        "custom/sep",
+        "hyprland/language"
     ],
     "modules-center": [
         "hyprland/workspaces"
     ],
     "modules-right": [
         "tray",
-        "custom/sep",
-        "hyprland/language",
         "custom/sep"
     ],
     "custom/power": {

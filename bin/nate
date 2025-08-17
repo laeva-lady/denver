@@ -106,9 +106,7 @@ sync_diff() {
     sleep 0.5
     {
         cd $WORKSTATION
-
-        sync_status
-
+        sync_files
         git diff
     }
 }
