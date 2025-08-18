@@ -45,17 +45,24 @@ local function update_colorscheme()
     end
 end
 
-local function run_loop()
-    local timer = vim.loop.new_timer()
-    timer:start(0, 60 * 60 * 1000, vim.schedule_wrap(function()
-        update_colorscheme()
-    end))
-end
-
 autocmd('BufEnter', {
     group = kateGroup,
-    callback = run_loop,
+    callback = update_colorscheme,
 })
+
+vim.g.netrw_browse_split = 0
+vim.g.netrw_banner = 1
+vim.g.netrw_winsize = 25
+
+require"kate.configs.filetypes"
+require"kate.configs.tinymist"
+
+require("luasnip").setup({ enable_autosnippets = true })
+require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/lua/kate/snippets/" })
+local ls = require("luasnip")
+vim.keymap.set("i", "<C-b>", function() ls.expand_or_jump(1) end, { silent = true })
+-- map({ "i", "s" }, "<C-J>", function() ls.jump(1) end, { silent = true })
+-- map({ "i", "s" }, "<C-K>", function() ls.jump(-1) end, { silent = true })
 
 autocmd('LspAttach', {
     group = kateGroup,
@@ -73,18 +80,4 @@ autocmd('LspAttach', {
         vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
     end
 })
-
-vim.g.netrw_browse_split = 0
-vim.g.netrw_banner = 1
-vim.g.netrw_winsize = 25
-
-require"kate.configs.filetypes"
-require"kate.configs.tinymist"
-
-require("luasnip").setup({ enable_autosnippets = true })
-require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/lua/kate/snippets/" })
-local ls = require("luasnip")
-vim.keymap.set("i", "<C-b>", function() ls.expand_or_jump(1) end, { silent = true })
--- map({ "i", "s" }, "<C-J>", function() ls.jump(1) end, { silent = true })
--- map({ "i", "s" }, "<C-K>", function() ls.jump(-1) end, { silent = true })
 

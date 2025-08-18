@@ -2,6 +2,7 @@
 
 aur=(
     brave-bin
+    gemini-cli-bin
     cnijfilter2 # canon printer drivers
     cursor-bin
     evince-no-gnome
@@ -92,6 +93,7 @@ pkgs=(
     ncdu   # WinDirStat like tool
     ncspot # TUI for spotify
     ncurses
+    neomutt
     neovim
     networkmanager
     network-manager-applet
