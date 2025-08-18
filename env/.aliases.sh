@@ -1,8 +1,6 @@
 alias vim="nvim"
 alias cim="nvim -u ~/.config/nvim/min-init.lua"
 
-alias t="tmux-sessionizer $(realpath .)"
-
 alias def="~/personal"
 
 alias ff="fastfetch"
@@ -37,6 +35,10 @@ alias gac="git commit -a"
 alias gacm="git commit -am"
 alias gpush="git push"
 alias gpull="git pull"
+
+t() {
+    tmux-sessionizer $(pwd)
+}
 
 cursor() {
     command cursor --enable-features=UseOzonePlatform --ozone-platform=wayland "$@" >/dev/null 2>&1 &

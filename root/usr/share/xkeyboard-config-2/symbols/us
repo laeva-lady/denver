@@ -24,21 +24,21 @@ xkb_symbols "basic" {
     key <AD06> {[ j,            J           ]};
     key <AD07> {[ l,            L           ]};
     key <AD08> {[ u,            U           ]};
-    key <AD09> {[ y,            Y           ]};
+    key <AD09> {[ y,            Y           , section]};
     key <AD10> {[ semicolon,    colon       ]};
     key <AD11> {[ bracketleft,  braceleft   ]};
     key <AD12> {[ bracketright, braceright  ]};
 
     key <AC01> {[ a,            A           ]};
-    key <AC02> {[ r,            R           ]};
-    key <AC03> {[ s,            S           ]};
-    key <AC04> {[ t,            T           ]};
+    key <AC02> {[ r,            R           , dead_acute]};
+    key <AC03> {[ s,            S           , dead_circumflex]};
+    key <AC04> {[ t,            T           , dead_grave]};
     key <AC05> {[ d,            D           ]};
     key <AC06> {[ h,            H           ]};
-    key <AC07> {[ n,            N           ]};
+    key <AC07> {[ n,            N           , notsigh]};
     key <AC08> {[ e,            E           ]};
     key <AC09> {[ i,            I           ]};
-    key <AC10> {[ o,            O           ]};
+    key <AC10> {[ o,            O           , oe, OE]};
     key <AC11> {[ apostrophe,   quotedbl    ]};
     key <BKSL> {[ backslash,    bar         ]};
 
@@ -55,4 +55,6 @@ xkb_symbols "basic" {
 
     key <CAPS> {[ Escape,       Escape      ]};
     key <RCTL> {[ Super_L,      Super_L     ]};
+
+    include "level3(ralt_switch)"
 };
