@@ -6,7 +6,7 @@ bufferline.setup {
         indicator = {
             style = "underline",
         },
-        diagnostics = false,
+        diagnostics = true,
         themable = true,
     }
 }

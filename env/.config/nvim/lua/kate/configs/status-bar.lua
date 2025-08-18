@@ -17,7 +17,7 @@ function _G.lsp_diagnostics()
 end
 
 function _G.lsp_status()
-    local buf_clients = vim.lsp.get_active_clients({ bufnr = 0 })
+    local buf_clients = vim.lsp.get_clients({ bufnr = 0 })
     if next(buf_clients) == nil then
         return ""
     end
