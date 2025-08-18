@@ -1,4 +1,3 @@
-alias v="nvim"
 alias vim="nvim"
 alias cim="nvim -u ~/.config/nvim/min-init.lua"
 
