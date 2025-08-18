@@ -71,7 +71,7 @@ sync_files() {
     sudo cp /etc/sudoers $WORKSTATION/root/etc/sudoers
     sudo chown $USER:$USER $WORKSTATION/root/etc/sudoers
     sudo cp -r /usr/share/sddm $WORKSTATION/root/usr/share/
-    sudo cp -r /etc/systemd/logind.conf $WORKSTATION/etc/systemd/logind.conf
+    sudo cp /etc/systemd/logind.conf $WORKSTATION/root/etc/systemd/logind.conf
 
     cp $HOME/.gitconfig $HOME/personal
 
