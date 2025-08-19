@@ -5,17 +5,14 @@ export PATH="$HOME/.config/emacs/bin:$PATH"
 export PATH="$HOME/.ghcup/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/scripts:$PATH"
 
-export WORKSTATION="$HOME/personal/denver"
-export PATH="$WORKSTATION/bin:$PATH"
+export DOCUMENTS_PATH="$HOME/documents"
+export WORKSTATION="$DOCUMENTS_PATH/denver"
 
-# export PKG_PATH_YAML="$WORKSTATION/resources/pkg.yaml"
-export PKG_PATH_TXT="$WORKSTATION/resources/pkg.txt"
-export BROWSER_CONFIG_PATH="$HOME/.zen/crjkc5yv.Default (release)"
 
 
 ZSH_THEME="robbyrussell"
-# ENABLE_CORRECTION="true"
 
 plugins=(
     git

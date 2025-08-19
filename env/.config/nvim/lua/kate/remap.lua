@@ -46,5 +46,3 @@ set("n", "<leader>mk", ":make<CR>")
 
 
 set("n", "<leader>ch", ":e ~/personal/chat.md<CR>")
-
-set("n", "<leader>p", ":TypstPreview<CR>")

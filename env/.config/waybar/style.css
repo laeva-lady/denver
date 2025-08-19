@@ -120,6 +120,10 @@ tooltip * {
     color: @gray;
 }
 
+#language {
+    color: @gray-dark;
+}
+
 #tray menu {
     background-color: @bg;
 }

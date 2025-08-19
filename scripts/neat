@@ -29,6 +29,7 @@ pkgs=(
     bat
     breeze
     breeze5
+    skim
     brightnessctl
     btop
     cantor
