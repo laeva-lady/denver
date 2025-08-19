@@ -5,10 +5,9 @@ export PATH="$HOME/.config/emacs/bin:$PATH"
 export PATH="$HOME/.ghcup/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/scripts:$PATH"
+export PATH="$HOME/documents/scripts:$PATH"
 
-export DOCUMENTS_PATH="$HOME/documents"
-export WORKSTATION="$DOCUMENTS_PATH/denver"
+export WORKSTATION="$HOME/denver"
 
 
 

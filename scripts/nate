@@ -51,7 +51,7 @@ sync_files() {
     update_env_files
 
     echo "Copying scripts"
-    cp ~/scripts/* $WORKSTATION/scripts/
+    cp ~/documents/scripts/* $WORKSTATION/scripts/
 
     echo "Copying vscode user settings"
     cp ~/.config/Code/User/settings.json $WORKSTATION/resources/Code

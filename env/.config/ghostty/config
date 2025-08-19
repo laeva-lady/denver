@@ -20,4 +20,4 @@ gtk-single-instance = true
 theme = Kanagawa Wave
 
 window-inherit-working-directory = false
-working-directory = /home/user/personal
+working-directory = /home/user/documents

@@ -2,7 +2,11 @@
 PANE_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/tmux-sessionizer"
 PANE_CACHE_FILE="$PANE_CACHE_DIR/panes.cache"
 
-TS_SEARCH_PATHS=("$(pwd)" ~/personal/ ~/.config:1 /home/)
+TS_SEARCH_PATHS=(
+    ~/documents/
+    ~/.config
+    /home
+)
 TS_MAX_DEPTH=3
 
 session_idx=""

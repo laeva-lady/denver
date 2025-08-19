@@ -1,0 +1,37 @@
+#!/usr/bin/bash
+
+# based on a script made by Sylvan Franklin : https://github.com/SylvanFranklin/.config/blob/main/scripts/tmux-session-dispensary.sh
+# currently not used can't figure out how to make directories the way i want it...
+
+DIRS=(
+    "$HOME/documents"
+    "$HOME"
+    "$HOME/documents/notes"
+    "$HOME/documents/projects"
+    "$HOME/documents/scripts"
+)
+
+if [[ $# -eq 1 ]]; then
+    selected=$1
+else
+    selected=$(fd "${DIRS[@]}" --type=dir --max-depth=1 --full-path \
+        | sed "s|^$HOME/||" \
+        | sk --margin 10% --color="bw")
+    [[ $selected ]] && selected="$HOME/$selected"
+fi
+
+[[ ! $selected ]] && exit 0
+
+selected_name=$(basename "$selected" | tr . _)
+
+# If we're not in tmux, just create a new session (or attach to an existing one)
+if [[ -z "$TMUX" ]]; then
+    tmux new-session -A -s "$selected_name" -c "$selected"
+else
+    # If we are in tmux, create the session if it doesn't exist, but don't attach
+    if ! tmux has-session -t "$selected_name"; then
+        tmux new-session -ds "$selected_name" -c "$selected"
+    fi
+    # Switch to the session
+    tmux switch-client -t "$selected_name"
+fi
