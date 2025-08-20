@@ -179,11 +179,11 @@ pkgs=(
 
 case "$1" in
 "v" | "vim")
-    nvim "$WORKSTATION/bin/neat"
+    nvim "$0"
     ;;
 *)
     paru -Syu
-    paru -S --needed "${pkgs[@]}"
-    paru -S --needed "${aur[@]}"
+    paru -S --noconfirm --needed "${pkgs[@]}"
+    paru -S --noconfirm --needed "${aur[@]}"
     ;;
 esac
