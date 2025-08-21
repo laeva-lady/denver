@@ -42,7 +42,7 @@ set("n", "<leader>sa", selectALL)
 
 set("n", "<leader>spq", "vapgq")
 
-set("n", "<leader>mk", ":make<CR>")
+set("n", "<leader>k", ":make<CR>")
 
 
 set("n", "<leader>ch", ":e ~/personal/chat.md<CR>")

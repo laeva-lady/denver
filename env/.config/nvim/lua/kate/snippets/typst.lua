@@ -2,7 +2,7 @@
 
 return {
     s({ trig = "mt", snippetType = "autosnippet" },
-        fmta("$<>$ ", { i(1) })
+        fmta("$<>$", { i(1) })
     ),
     s({ trig = "([^%s]+);deg", snippetType = "autosnippet", regTrig = true },
         fmta("<>° <>", {
@@ -10,8 +10,14 @@ return {
             i(1)
         })
     ),
+    s({ trig = "([^%s]+);f", snippetType = "autosnippet", regTrig = true },
+        fmta("<>_(<>)", {
+            f(function(_, s) return s.captures[1] end),
+            i(1)
+        })
+    ),
     s({ trig = "([^%s]+);t", snippetType = "autosnippet", regTrig = true },
-        fmta("<>^(<>) ", {
+        fmta("<>^(<>)", {
             f(function(_, s) return s.captures[1] end),
             i(1)
         })

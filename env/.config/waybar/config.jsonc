@@ -21,7 +21,8 @@
     ],
     "modules-right": [
         "tray",
-        "custom/sep"
+        "custom/sep",
+        "battery"
     ],
     "custom/power": {
         "rotate": 90,
@@ -97,5 +98,8 @@
         "scroll-step": 2,
         "on-click": "hyprctl dispatch exec pavucontrol",
         "on-click-right": "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
+    },
+    "battery": {
+        "format": "{capacity}"
     }
 }

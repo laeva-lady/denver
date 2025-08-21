@@ -4,12 +4,10 @@ aur=(
     brave-bin
     gemini-cli-bin
     cnijfilter2 # canon printer drivers
-    cursor-bin
     evince-no-gnome
     fcitx5-mozc-ut
     localsend-bin # share files locally
     minecraft-launcher
-    opencode-bin
     protontricks # needed it to install webview for Forza Horizon
     r2modman-bin
     rider

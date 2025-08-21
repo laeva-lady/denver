@@ -38,7 +38,7 @@ autocmd({ "BufWritePre" }, {
 
 local function update_colorscheme()
     local hour = tonumber(os.date('%H'))
-    if hour >= 10 and hour < 20 then
+    if hour >= 9 and hour < 22 then
         vim.cmd.colorscheme("kanagawa-wave")
     else
         vim.cmd.colorscheme("kanagawa-dragon")
