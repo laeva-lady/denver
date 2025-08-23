@@ -10,7 +10,7 @@ if [ -n "$1" ] && [ -n "$2" ]; then
     {
         cd "$1"
         echo "Compressiong personal"
-        tar -cJvf personal.tar.xz ~/personal/
+        tar -cJvf documents.tar.xz ~/documents/
         echo "Compressiong .minecraft"
         tar -czvf minecraft.tar.gz ~/.minecraft
         echo "Compressiong zen profile"
