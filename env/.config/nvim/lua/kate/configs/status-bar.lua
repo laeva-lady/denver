@@ -30,12 +30,24 @@ function _G.lsp_status()
     return "[" .. table.concat(names, ",") .. "]"
 end
 
+function _G.supermaven_status()
+    local ok, sm = pcall(require, "supermaven-nvim.api")
+    if not ok then
+        return ""
+    end
+    if sm.is_running() then
+        return "[Supermaven running]"
+    end
+    return ""
+end
+
 local function status_line()
     local file_name = " [%-.16t]"
     local modified = " %-m"
     local file_type = " %y"
     local diagnostics = " %{v:lua.lsp_diagnostics()}"
     local lsp = " %{v:lua.lsp_status()}"
+    local supermaven = " %{v:lua.supermaven_status()}"
     local right_align = "%="
     local line_no = "%10([%l/%L%)]"
 
@@ -46,6 +58,7 @@ local function status_line()
         right_align,
         diagnostics,
         lsp,
+        supermaven,
         line_no
     })
 end

@@ -93,6 +93,9 @@ return {
                     require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
                 end
             },
+            experimental = {
+                ghost_text = true, -- inline preview of selected completion
+            },
             mapping = cmp.mapping.preset.insert({
                 ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
                 ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
@@ -132,6 +135,5 @@ return {
                 prefix = ""
             }
         })
-
     end
 }

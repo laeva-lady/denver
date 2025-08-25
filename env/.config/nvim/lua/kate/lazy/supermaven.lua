@@ -4,12 +4,14 @@ return {
         config = function()
             require("supermaven-nvim").setup({
                 keymaps = {
-                    accept_suggestion = "<Tab>",
+                    -- accept_suggestion = "<Tab>",
                     clear_suggestion = "<C-]>",
-                    accept_word = "<C-j>",
+                    accept_word = "<C-[>",
                 },
                 disable_inline_completion = true,
             })
+
+            vim.keymap.set({ "n", "v" }, "<leader>su", ":SupermavenToggle<CR>")
         end,
     }
 }

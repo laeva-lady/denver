@@ -46,3 +46,4 @@ set("n", "<leader>k", ":make<CR>")
 
 
 set("n", "<leader>ch", ":e ~/personal/chat.md<CR>")
+
