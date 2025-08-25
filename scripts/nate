@@ -7,7 +7,7 @@ DOTFILES="$WORKSTATION/dotfiles.sh"
 update_env_files() {
     source "$DOTFILES"
 
-    echo "Copying envs files 📁"
+    echo "Copying envs files"
     rm -r "$WORKSTATION/env/"
     mkdir -p "$WORKSTATION/env/"
     for env_file in "${envs[@]}"; do
@@ -15,7 +15,7 @@ update_env_files() {
         cp "$HOME/$env_file" "$WORKSTATION/env/"
     done
 
-    echo "Copying configs files 🗃️"
+    echo "Copying configs files"
     rm -rf "$WORKSTATION/env/.config"
     mkdir -p "$WORKSTATION/env/.config"
     for config_item in "${confs[@]}"; do

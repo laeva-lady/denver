@@ -1,4 +1,4 @@
-# alias vim="~/personal/nvim-linux-x86_64/bin/nvim"
+# alias vim="~/documents/nvim-linux-x86_64/bin/nvim"
 alias vim="nvim"
 alias cim="nvim -u ~/.config/nvim/min-init.lua"
 
