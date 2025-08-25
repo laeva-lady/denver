@@ -9,6 +9,7 @@
     // "margin-top": 5,
     // "margin-bottom": 5,
     "modules-left": [
+        "battery",
         "custom/sep",
         "clock",
         "custom/sep",
@@ -97,8 +98,8 @@
         "scroll-step": 2,
         "on-click": "hyprctl dispatch exec pavucontrol",
         "on-click-right": "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
+    },
+    "battery": {
+        "format": "{capacity}\nbt"
     }
-    // "battery": {
-    //     "format": "{capacity}"
-    // }
 }

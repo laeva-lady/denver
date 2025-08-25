@@ -120,7 +120,8 @@ tooltip * {
     color: @gray;
 }
 
-#language {
+#language,
+#battery {
     color: @gray-dark;
 }
 

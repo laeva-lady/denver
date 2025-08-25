@@ -4,6 +4,9 @@ return {
     s({ trig = "mt", snippetType = "autosnippet" },
         fmta("$<>$", { i(1) })
     ),
+    s({ trig = "=-", snippetType = "autosnippet" },
+        fmta("plus.minus<>", { i(1) })
+    ),
     -- s({ trig = "([^%s]+);deg", snippetType = "autosnippet", regTrig = true },
     --     fmta("<>° <>", {
     --         f(function(_, s) return s.captures[1] end),
