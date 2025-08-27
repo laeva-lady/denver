@@ -13,7 +13,7 @@ return {
     --         i(1)
     --     })
     -- ),
-    s({ trig = "(%(.*%))%;d", snippetType = "autosnippet", regTrig = true },
+    s({ trig = "(%(.*%));d", snippetType = "autosnippet", regTrig = true },
         fmta("<>/(<>)", {
             f(function(_, s) return s.captures[1] end),
             i(1)
