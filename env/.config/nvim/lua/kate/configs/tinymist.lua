@@ -1,8 +1,7 @@
 require "lspconfig"["tinymist"].setup {
     settings = {
         formatterMode = "typstyle",
-        exportPdf = "onType",
+        exportPdf = "onSave",
         semanticTokens = "disable"
-
     }
 }
