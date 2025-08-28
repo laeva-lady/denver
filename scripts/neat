@@ -44,6 +44,7 @@ pkgs=(
     erlang
     eza
     fastfetch
+    openrgb
     fcitx5-configtool
     fcitx5-gtk
     fcitx5-rime
@@ -155,7 +156,7 @@ pkgs=(
     ttf-fira-code
     ttf-iosevkaterm-nerd
     ttf-nerd-fonts-symbols-mono
-    tumbler       # needed to display thumbnails in Thunar
+    tumbler # needed to display thumbnails in Thunar
     typst
     uv
     vivaldi

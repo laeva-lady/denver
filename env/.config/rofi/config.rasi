@@ -1,35 +1,36 @@
 configuration {
-    modi:                       "drun,run,filebrowser";
-    show-icons:                 false;
-    display-drun:               " ";
-    display-run:                "# ";
-    drun-display-format:        "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";
-    window-format:              "{w} · {c} · {t}";
+    modi: "drun,run,filebrowser";
+    show-icons: true;
+    display-drun: " ";
+    display-run: "# ";
+    drun-display-format: "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";
+    window-format: "{w} · {c} · {t}";
 }
 
 * {
-    bg-col:  rgba(0, 0, 0, 0.25);
-    bg-col-light: #1e1e2e;
-    border-col: #1e1e2e;
-    selected-col: #1e1e2e;
-    blue: #89b4fa;
-    fg-col: #cdd6f4;
-    fg-col2: #f38ba8;
-    grey: #6c7086;
+    // Kanagawa Waves Palette
+    bg-col:        #1F1F28;   // WaveBlue1
+    bg-col-light:  #2A2A37;   // SumiInk2
+    border-col:    #223249;   // SumiInk4
+    selected-col:  #223249;   // WaveAqua1
+    blue:          #7E9CD8;   // CrystalBlue
+    fg-col:        #DCD7BA;   // OldWhite
+    fg-col2:       #E6C384;   // WaveYellow1
+    grey:          #9CABCA;   // FujisawaGray
     width: 1000;
-    font: "JetBrainsMono Nerd Font 18";
+    font: "IosevkaTerm NFM Light 18";
 }
 
-element-text, element-icon , mode-switcher {
+element-text, element-icon, mode-switcher {
     background-color: inherit;
-    text-color:       inherit;
+    text-color: inherit;
 }
 
 window {
-    height: 600px;
-    border: 3px;
-    border-radius: 10px;
-    border-color: #a12271;
+    // height: 600px;
+    border: 2px;
+    border-radius: 5px;
+    border-color: @border-col;
     background-color: @bg-col;
 }
 
@@ -45,9 +46,9 @@ inputbar {
 }
 
 prompt {
-    background-color: #1C1927;
+    background-color: #d65d0e;
     padding: 6px;
-    text-color: white;
+    text-color: #fbf1c7;
     border-radius: 3px;
     margin: 20px 0px 0px 20px;
 }
@@ -65,18 +66,19 @@ entry {
 }
 
 listview {
-    border: 0px 0px 0px;
+    border: 0px;
     padding: 6px 0px 0px;
     margin: 10px 0px 0px 20px;
     columns: 1;
-    lines: 10;
+    lines: 5;
     background-color: @bg-col;
+    scroll-method: 2;
 }
 
 element {
     padding: 5px;
     background-color: @bg-col;
-    text-color: @fg-col  ;
+    text-color: @fg-col;
 }
 
 element-icon {
@@ -84,8 +86,8 @@ element-icon {
 }
 
 element selected {
-    background-color:  @selected-col ;
-    text-color: @fg-col2  ;
+    background-color: @selected-col;
+    text-color: @fg-col2;
 }
 
 mode-switcher {
@@ -101,8 +103,8 @@ button {
 }
 
 button selected {
-  background-color: @bg-col;
-  text-color: @blue;
+    background-color: @bg-col;
+    text-color: @blue;
 }
 
 message {
@@ -117,8 +119,4 @@ textbox {
     margin: 20px 0px 0px 20px;
     text-color: @blue;
     background-color: @bg-col-light;
-}
-
-configuration {
-    show-icons: true;
 }
