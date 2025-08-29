@@ -1,7 +1,6 @@
 #!/usr/bin/bash
 
 aur=(
-    brave-bin
     gemini-cli-bin
     cnijfilter2 # canon printer drivers
     evince-no-gnome
@@ -115,7 +114,6 @@ pkgs=(
     qt5ct
     qt5-wayland
     qt6-wayland
-    qutebrowser
     ranger
     raylib
     ripgrep
@@ -159,7 +157,6 @@ pkgs=(
     tumbler # needed to display thumbnails in Thunar
     typst
     uv
-    vivaldi
     vlc
     vlc-plugins-all
     vlc-plugin-x264
@@ -181,7 +178,7 @@ case "$1" in
     nvim "$0"
     ;;
 *)
-    paru -Syu
+    paru -Syu --noconfirm
     paru -S --noconfirm --needed "${pkgs[@]}"
     paru -S --noconfirm --needed "${aur[@]}"
     ;;
