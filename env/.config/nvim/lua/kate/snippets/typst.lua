@@ -14,7 +14,7 @@ return {
         })
     ),
     s({ trig = "=-", snippetType = "autosnippet" },
-        fmta("plus.minus<>", { i(1) })
+        fmta("plus.minus <>", { i(1) })
     ),
     -- s({ trig = "([^%s]+);deg", snippetType = "autosnippet", regTrig = true },
     --     fmta("<>° <>", {
