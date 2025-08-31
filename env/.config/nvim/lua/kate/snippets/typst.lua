@@ -7,9 +7,8 @@ return {
     s({ trig = ";center", snippetType = "autosnippet" },
         fmta("#align(center)[<>]", { i(1) })
     ),
-    s({ trig = "([^%s]+);2", snippetType = "autosnippet", regTrig = true },
-        fmta("<>\"<>\"", {
-            f(function(_, s) return s.captures[1] end),
+    s({ trig = ";2", snippetType = "autosnippet" },
+        fmta("\"<>\"", {
             i(1)
         })
     ),
