@@ -1,0 +1,46 @@
+#!/usr/bin/bash
+
+check-uptime() {
+    printf "%15s : %s\n" "Uptime" "$(uptime -p | cut -d " " -f2-)"
+}
+check-packages() {
+    output=$(paru -Q | wc -l)
+    output2=$(checkupdates | wc -l)
+    if [ "$output2" == "0" ]; then
+        update=""
+    else
+        update="($output2 to update)"
+    fi
+
+    printf "%15s : %s %s\n" "Packages" "$output" "$update"
+}
+check-disk-usage() {
+    printf "%15s :\n" "Disk usages"
+    lsblk -dno NAME,LABEL | awk '$1!=""{print $1,$2}' | while read disk label; do
+        total=$(lsblk -bno SIZE /dev/$disk | head -n1)
+        used=$(df -B1 --output=source,used | awk -v d="$disk" '$1 ~ d {sum+=$2} END{print sum}')
+        if [ -n "$used" ]; then
+            pct=$((100 * used / total))
+            if [ -n "$label" ]; then
+                name="$disk ($label)"
+            else
+                name="$disk"
+            fi
+            root_part=$(df / --output=source | tail -1)
+            root_disk=$(lsblk -no PKNAME "$root_part")
+            main_disk=""
+            if [ "$disk" == "$root_disk" ]; then
+                main_disk="[OS Disk]"
+            fi
+            printf "%25s %3s%% %s\n" "$name" "$pct" "$main_disk"
+        fi
+    done
+}
+check-keymap() {
+    printf "%15s : %s\n" "Keymap" "$(hyprctl devices -j | jq '.keyboards | .[] | select(.main == true) | .active_keymap' -r)"
+}
+
+check-uptime
+check-packages
+check-keymap
+check-disk-usage
