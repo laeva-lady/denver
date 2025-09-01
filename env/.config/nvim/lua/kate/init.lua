@@ -36,26 +36,24 @@ autocmd({ "BufWritePre" }, {
     command = [[%s/\s\+$//e]],
 })
 
-local function update_colorscheme()
-    local hour = tonumber(os.date('%H'))
-    if hour >= 9 and hour < 22 then
-        vim.cmd.colorscheme("kanagawa-wave")
-    else
-        vim.cmd.colorscheme("kanagawa-dragon")
-    end
-end
-
-autocmd('BufEnter', {
+autocmd({ "BufEnter", "BufWritePost" }, {
     group = kateGroup,
-    callback = update_colorscheme,
+    callback = function()
+        local hour = tonumber(os.date('%H'))
+        if hour >= 9 and hour < 22 then
+            vim.cmd.colorscheme("kanagawa-wave")
+        else
+            vim.cmd.colorscheme("kanagawa-dragon")
+        end
+    end,
 })
 
 vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 1
 vim.g.netrw_winsize = 25
 
-require"kate.configs.filetypes"
-require"kate.configs.tinymist"
+require "kate.configs.filetypes"
+require "kate.configs.tinymist"
 
 require("luasnip").setup({ enable_autosnippets = true })
 require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/lua/kate/snippets/" })
@@ -80,4 +78,3 @@ autocmd('LspAttach', {
         vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
     end
 })
-

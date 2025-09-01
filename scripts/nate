@@ -125,6 +125,9 @@ case "$1" in
 "z" | "zen")
     zen-browser --new-tab "https://github.com/laeva-lady/denver"
     ;;
+"f" | "firefox")
+    firefox "https://github.com/laeva-lady/denver"
+    ;;
 *)
     sync_files
     ;;

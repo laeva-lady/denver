@@ -38,8 +38,13 @@ alias gpush="git push"
 alias gpull="git pull"
 
 t() {
-    tmux-sessionizer $(pwd)
+    if [ -z "$1" ]; then
+        tmux-sessionizer $(pwd)
+    else
+        tmux-sessionizer "$(realpath $1)"
+    fi
 }
+complete -o dirnames t
 
 cursor() {
     command cursor --enable-features=UseOzonePlatform --ozone-platform=wayland "$@" >/dev/null 2>&1 &

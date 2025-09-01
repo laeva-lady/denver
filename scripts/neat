@@ -38,6 +38,7 @@ pkgs=(
     discord
     dotnet-runtime
     dotnet-sdk
+    komikku
     dunst
     elixir
     erlang
@@ -154,6 +155,7 @@ pkgs=(
     ttf-fira-code
     ttf-iosevkaterm-nerd
     ttf-nerd-fonts-symbols-mono
+    xournalpp
     tumbler # needed to display thumbnails in Thunar
     typst
     uv
@@ -167,6 +169,7 @@ pkgs=(
     wl-clipboard
     xdg-desktop-portal-hyprland
     yarn
+    hyprpolkitagent
     yazi
     zig
     zls

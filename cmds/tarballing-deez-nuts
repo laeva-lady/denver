@@ -1,19 +1,32 @@
 #!/usr/bin/bash
 
-if [ -z "$@" ]; then
-    echo "You need to provide those arguments:"
-    echo -e "\t1st arg: drive path"
-    echo -e "\t2nd arg: zen profile path"
-fi
+drive_path="/run/media/kate/Estrogen/"
+today_drive_path="/run/media/kate/Estrogen/$(date +"%Y-%m-%d")"
+mkdir "$today_drive_path"
 
-if [ -n "$1" ] && [ -n "$2" ]; then
-    {
-        cd "$1"
-        echo "Compressiong personal"
-        tar -cJvf documents.tar.xz ~/documents/
-        echo "Compressiong .minecraft"
-        tar -czvf minecraft.tar.gz ~/.minecraft
-        echo "Compressiong zen profile"
-        tar -czvf zen-profile.tar.gz "$2"
-    }
+zen_profile="$HOME/.zen/crjkc5yv.Default (release)"
+firefox_profile="$HOME/.mozilla/firefox/k8lmbtna.default-release/"
+
+if cd "$today_drive_path"; then
+    echo "Compressiong documents"
+    sleep 3
+    XZ_OPT="-T2" tar -cJvf documents.tar.xz ~/documents/
+
+    echo "Compressiong personal"
+    sleep 3
+    XZ_OPT="-T2" tar -cJvf personal.tar.xz ~/personal/
+
+    echo "Compressiong .minecraft"
+    sleep 3
+    tar -czvf minecraft.tar.gz ~/.minecraft
+
+    echo "Compressiong zen profile"
+    sleep 3
+    tar -czvf zen-profile.tar.gz "$zen_profile"
+
+    echo "Compressiong firefox profile"
+    sleep 3
+    tar -czvf firefox-profile.tar.gz "$firefox_profile"
+else
+    echo "Drive ($drive_path) not found"
 fi

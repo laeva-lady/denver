@@ -7,14 +7,12 @@ set("n", "<C-y>", "<cmd>silent !tmux neww yazi-tmux<CR>")
 set("n", "<leader>pv", ":NvimTreeToggle<CR>")
 set("n", "<leader>e", ":NvimTreeFocus<CR>")
 
-set("n", "<leader>hf", ":%!stylish-haskell<CR>")
-
 set({ "n", "v" }, ";", ":")
 set({ "n", "v" }, "!", ":!")
 
-set({ "n", "v", "i" }, "<C-s>", "<ESC>:w<CR>")
+-- set({ "n", "v", "i" }, "<C-s>", "<ESC>:w<CR>")
 
-set("i", "<C-u>", "<Esc>")
+-- set("i", "<C-u>", "<Esc>")
 
 set("n", "<C-f>", ":Files<CR>", { desc = "Open fzf" })
 set("n", "<leader>f", vim.lsp.buf.format, { desc = "format" })
@@ -25,9 +23,9 @@ set("n", "<C-c>", ":bdelete<CR>")
 
 set("n", "<C-o>", "<nop>")
 
-set("n", "<leader>\\", ":ToggleTerm<CR>")
+-- set("n", "<leader>\\", ":ToggleTerm<CR>")
 
-set("n", "<leader>mv", ":Markview<CR>")
+-- set("n", "<leader>mv", ":Markview<CR>")
 
 -- commands related to functions
 --
