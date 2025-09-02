@@ -4,6 +4,9 @@ return {
     s({ trig = "mt", snippetType = "autosnippet" },
         fmta("$<>$", { i(1) })
     ),
+    s({ trig = "apm", snippetType = "autosnippet" },
+        fmta("& <>", { i(1) })
+    ),
     s({ trig = ";center", snippetType = "autosnippet" },
         fmta("#align(center)[<>]", { i(1) })
     ),

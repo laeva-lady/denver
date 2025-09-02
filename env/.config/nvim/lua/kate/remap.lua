@@ -10,7 +10,7 @@ set("n", "<leader>e", ":NvimTreeFocus<CR>")
 set({ "n", "v" }, ";", ":")
 set({ "n", "v" }, "!", ":!")
 
--- set({ "n", "v", "i" }, "<C-s>", "<ESC>:w<CR>")
+set({ "n", "v", "i" }, "<C-s>", "<ESC>:w<CR>")
 
 -- set("i", "<C-u>", "<Esc>")
 

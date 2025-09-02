@@ -124,6 +124,9 @@ tooltip * {
 #battery {
     color: @gray-dark;
 }
+#custom-mode {
+    color: @gray;
+}
 
 #tray menu {
     background-color: @bg;

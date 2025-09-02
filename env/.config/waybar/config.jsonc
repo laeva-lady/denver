@@ -9,7 +9,8 @@
     // "margin-top": 5,
     // "margin-bottom": 5,
     "modules-left": [
-        // "battery",
+        "battery",
+        "custom/mode",
         "custom/sep",
         "clock",
         "custom/sep",
@@ -88,7 +89,7 @@
         // "rotate": 90,
         "format": "{volume}",
         "format-bluetooth": "{volume}%",
-        "format-muted": "{volume}%",
+        "format-muted": "MUTE",
         "format-icons": {
             "default": [
                 "",
@@ -100,6 +101,12 @@
         "on-click-right": "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
     },
     "battery": {
-        "format": "{capacity}\nbt"
+        "rotate": 90,
+        "format": " {capacity} bt "
+    },
+    "custom/mode": {
+        "rotate": 90,
+        "exec": "powerprofilesctl get",
+        "interval": 5
     }
 }
