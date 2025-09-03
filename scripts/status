@@ -18,7 +18,7 @@ check-disk-usage() {
     printf "%15s :\n" "Disk usages"
     lsblk -dno NAME,LABEL | awk '$1!=""{print $1,$2}' | while read disk label; do
         total=$(lsblk -bno SIZE /dev/$disk | head -n1)
-        used=$(df -B1 --output=source,used | awk -v d="$disk" '$1 ~ d {sum+=$2} END{print sum}')
+        used=$(df -B1 --output=source,used /dev/${disk}?* 2>/dev/null | awk -v d="$disk" '$1 ~ d {sum+=$2} END{print sum}')
         if [ -n "$used" ]; then
             pct=$((100 * used / total))
             if [ -n "$label" ]; then

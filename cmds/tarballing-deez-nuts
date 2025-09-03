@@ -27,6 +27,10 @@ if cd "$today_drive_path"; then
     echo "Compressiong firefox profile"
     sleep 3
     tar -czvf firefox-profile.tar.gz "$firefox_profile"
+
+    echo "Compressiong winapps stuff"
+    sleep 3
+    tar -czvf winapps-configs.tar.gz "$HOME/.config/winapps"
 else
     echo "Drive ($drive_path) not found"
 fi

@@ -45,14 +45,17 @@ t() {
     fi
 }
 complete -o dirnames t
+tl() {
+    tmux list-sessions
+}
 
 cursor() {
     command cursor --enable-features=UseOzonePlatform --ozone-platform=wayland "$@" >/dev/null 2>&1 &
 }
 
 battery() {
-    upower -i /org/freedesktop/UPower/devices/battery_BAT0 \
-        | awk '/state:/ { s=$2 } /percentage:/ { p=$2 } END { print p " (" s ")" }'
+    upower -i /org/freedesktop/UPower/devices/battery_BAT0 |
+        awk '/state:/ { s=$2 } /percentage:/ { p=$2 } END { print p " (" s ")" }'
 }
 
 dfz() {
