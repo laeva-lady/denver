@@ -3,4 +3,4 @@
 based on [ThePrimeagen's config](https://github.com/thePrimeagen/init.lua)
 
 # ToDo
-- [ ] check harper-ls ??
+- [ ] check harper-ls?

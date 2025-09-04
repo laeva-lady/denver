@@ -17,13 +17,15 @@ aur=(
     vesktop-bin
     wlogout
     wlrobs # plugin for OBS to record in wayland
-    # zen-browser # AUR doesn't fucking work anymore ???
+    zen-browser-bin
 )
 
 pkgs=(
     aspnet-runtime
     base-devel
     bat
+    zathura
+    zathura-pdf-poppler
     breeze
     breeze5
     brightnessctl
@@ -41,6 +43,7 @@ pkgs=(
     elixir
     erlang
     eza
+    hexchat
     fastfetch
     fcitx5-configtool
     fcitx5-gtk
