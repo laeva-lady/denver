@@ -1,10 +1,10 @@
 #!/usr/bin/bash
 
 aur=(
-    gemini-cli-bin
     cnijfilter2 # canon printer drivers
     evince-no-gnome
     fcitx5-mozc-ut
+    gemini-cli-bin
     localsend-bin # share files locally
     minecraft-launcher
     protontricks # needed it to install webview for Forza Horizon
@@ -17,7 +17,7 @@ aur=(
     vesktop-bin
     wlogout
     wlrobs # plugin for OBS to record in wayland
-    zen-browser-bin
+    # zen-browser # AUR doesn't fucking work anymore ???
 )
 
 pkgs=(
@@ -26,7 +26,6 @@ pkgs=(
     bat
     breeze
     breeze5
-    skim
     brightnessctl
     btop
     cantor
@@ -38,13 +37,11 @@ pkgs=(
     discord
     dotnet-runtime
     dotnet-sdk
-    komikku
     dunst
     elixir
     erlang
     eza
     fastfetch
-    openrgb
     fcitx5-configtool
     fcitx5-gtk
     fcitx5-rime
@@ -74,6 +71,7 @@ pkgs=(
     hyprlock
     hyprpaper
     hyprpicker
+    hyprpolkitagent
     hyprshot
     i3-wm
     inkscape
@@ -83,7 +81,9 @@ pkgs=(
     keepassxc
     keyd
     kitty
+    komikku
     kvantum
+    lazygit
     libreoffice-still
     loupe # gnome's image viewer
     lua
@@ -106,6 +106,7 @@ pkgs=(
     obs-studio
     odin
     okular
+    openrgb
     pandoc-cli
     pavucontrol
     power-profiles-daemon
@@ -125,6 +126,7 @@ pkgs=(
     sagemath
     seahorse
     shfmt
+    skim
     spotify-launcher
     steam
     steam-native-runtime
@@ -155,7 +157,6 @@ pkgs=(
     ttf-fira-code
     ttf-iosevkaterm-nerd
     ttf-nerd-fonts-symbols-mono
-    xournalpp
     tumbler # needed to display thumbnails in Thunar
     typst
     uv
@@ -168,8 +169,8 @@ pkgs=(
     wine-mono
     wl-clipboard
     xdg-desktop-portal-hyprland
+    xournalpp
     yarn
-    hyprpolkitagent
     yazi
     zig
     zls
