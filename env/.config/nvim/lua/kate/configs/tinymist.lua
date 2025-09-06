@@ -1,6 +1,6 @@
 require "lspconfig"["tinymist"].setup {
     settings = {
-        formatterMode = "typstfmt",
+        formatterMode = "typstyle",
         exportPdf = "onType",
         semanticTokens = "enable",
         formatterPrintWidth = 80,

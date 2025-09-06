@@ -31,6 +31,12 @@ vim.api.nvim_create_autocmd("FileType", {
         vim.opt.linebreak = true
         vim.opt.textwidth = 120
         vim.opt.formatoptions:append("t")
+
+        -- keymap to open compiled PDF in zathura
+        vim.keymap.set("n", "<leader>y", function()
+            local pdf = vim.fn.expand("%:p:r") .. ".pdf"
+            vim.fn.jobstart({ "zathura", pdf }, { detach = true })
+        end, { buffer = true, desc = "Open PDF in Zathura" })
     end
 })
 

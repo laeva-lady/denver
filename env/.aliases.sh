@@ -45,6 +45,7 @@ t() {
     fi
 }
 complete -o dirnames t
+
 tl() {
     tmux list-sessions
 }
