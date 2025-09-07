@@ -3,14 +3,6 @@
 VERBOSE=false
 
 CP_FLAGS=""
-if [ "$VERBOSE" == "true" ]; then
-    CP_FLAGS="-v"
-fi
-
-RSYNC_FLAGS="-a"
-if [ "$VERBOSE" == "true" ]; then
-    RSYNC_FLAGS="-av"
-fi
 
 DOTFILES="$WORKSTATION/dotfiles.sh"
 
@@ -85,7 +77,7 @@ sync_files() {
     cp $CP_FLAGS ~/.config/Cursor/User/keybindings.json $WORKSTATION/resources/Cursor
 
     echo "Copying icons"
-    rsync $RSYNC_FLAGS ~/.local/share/icons/ $WORKSTATION/resources/icons
+    rsync $RSYNC_FLAGS ~/.local/share/icons/ $WORKSTATION/resources/icons | awk -F" -> " '{print $1 "\t\t->\t\t" $2}'
     echo "Copying themes"
     rsync $RSYNC_FLAGS ~/.themes/ $WORKSTATION/resources/themes
 
@@ -140,6 +132,15 @@ case "$1" in
     shift
     ;;
 esac
+
+if [ "$VERBOSE" == true ]; then
+    CP_FLAGS="-v"
+fi
+
+RSYNC_FLAGS="-a"
+if [ "$VERBOSE" == true ]; then
+    RSYNC_FLAGS="-av"
+fi
 
 case "$1" in
 "s" | "sync")
