@@ -59,8 +59,6 @@ update_env_files() {
 sync_files() {
     update_env_files
 
-    echo "$VERBOSE - $CP_FLAGS - $RSYNC_FLAGS"
-
     echo "Copying scripts"
     cp $CP_FLAGS ~/documents/scripts/* $WORKSTATION/scripts/
 
@@ -77,7 +75,7 @@ sync_files() {
     cp $CP_FLAGS ~/.config/Cursor/User/keybindings.json $WORKSTATION/resources/Cursor
 
     echo "Copying icons"
-    rsync $RSYNC_FLAGS ~/.local/share/icons/ $WORKSTATION/resources/icons | awk -F" -> " '{print $1 "\t\t->\t\t" $2}'
+    rsync $RSYNC_FLAGS ~/.local/share/icons/ $WORKSTATION/resources/icons
     echo "Copying themes"
     rsync $RSYNC_FLAGS ~/.themes/ $WORKSTATION/resources/themes
 
