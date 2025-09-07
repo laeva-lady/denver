@@ -2,9 +2,7 @@
 
 while true; do
     make
-    echo
-    echo
-    echo
+    printf '%*s\n' "$COLUMNS" '' | tr ' ' -
     echo
     read -p "Waiting on input..."
 done

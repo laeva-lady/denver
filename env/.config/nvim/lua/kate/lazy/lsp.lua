@@ -24,6 +24,17 @@ return {
         local capabilities = vim.tbl_deep_extend("force", {}, vim.lsp.protocol.make_client_capabilities(),
             cmp_lsp.default_capabilities())
 
+        local cmp_enabled = true
+        vim.keymap.set("n", "<leader>ac", function()
+            cmp_enabled = not cmp_enabled
+            cmp.setup({
+                enabled = function()
+                    return cmp_enabled
+                end,
+            })
+            print("nvim-cmp " .. (cmp_enabled and "enabled" or "disabled"))
+        end, { desc = "Toggle autocompletion" })
+
         require("fidget").setup({})
         require("mason").setup()
         require("mason-lspconfig").setup({

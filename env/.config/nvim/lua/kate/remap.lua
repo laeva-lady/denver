@@ -10,6 +10,8 @@ set("n", "<leader>e", ":NvimTreeFocus<CR>")
 set({ "n", "v" }, ";", ":")
 set({ "n", "v" }, "!", ":!")
 
+set({ "n" }, "<leader>t", "i<C-R>=strftime('%Y-%m-%d %H:%M:%S')<CR><Esc>")
+
 set({ "n", "v", "i" }, "<C-s>", "<ESC>:w<CR>")
 
 -- set("i", "<C-u>", "<Esc>")
@@ -44,4 +46,3 @@ set("n", "<leader>k", ":make<CR>")
 
 
 set("n", "<leader>ch", ":e ~/personal/chat.md<CR>")
-

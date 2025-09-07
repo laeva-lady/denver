@@ -4,6 +4,7 @@ aur=(
     cnijfilter2 # canon printer drivers
     thorium-browser-bin
     evince-no-gnome
+    chatterino2-bin
     fcitx5-mozc-ut
     gemini-cli-bin
     localsend-bin # share files locally
