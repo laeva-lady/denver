@@ -37,6 +37,12 @@ alias gacm="git commit -am"
 alias gpush="git push"
 alias gpull="git pull"
 
+psk() {
+    for str in "$@"; do
+        printf "%-15s %.2f GB\n" "$str" "$(ps -o rss= -p $(pgrep $str) | awk '{s+=$1} END {print s / (1024*1024)}')"
+    done
+}
+
 t() {
     if [ -z "$1" ]; then
         tmux-sessionizer $(pwd)

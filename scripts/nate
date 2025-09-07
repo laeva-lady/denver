@@ -1,8 +1,24 @@
 #! /usr/bin/bash
 
-# Copies dotfiles to this repo, then update remote if the user wants
-#
+VERBOSE=false
+
+CP_FLAGS=""
+if [ "$VERBOSE" == "true" ]; then
+    CP_FLAGS="-v"
+fi
+
+RSYNC_FLAGS="-a"
+if [ "$VERBOSE" == "true" ]; then
+    RSYNC_FLAGS="-av"
+fi
+
 DOTFILES="$WORKSTATION/dotfiles.sh"
+
+log() {
+    if [ "$VERBOSE" == true ]; then
+        echo -e "$1"
+    fi
+}
 
 update_env_files() {
     source "$DOTFILES"
@@ -11,7 +27,7 @@ update_env_files() {
     rm -r "$WORKSTATION/env/"
     mkdir -p "$WORKSTATION/env/"
     for env_file in "${envs[@]}"; do
-        # echo -e "\t\t- $env_file"
+        log "\t\t- $env_file"
         cp "$HOME/$env_file" "$WORKSTATION/env/"
     done
 
@@ -22,7 +38,7 @@ update_env_files() {
         SOURCE_PATH="$HOME/.config/$config_item"
         DEST_PATH="$WORKSTATION/env/.config/$config_item"
 
-        # echo -e "\t\t- $config_item"
+        log "\t\t- $config_item"
 
         if [[ -d "$SOURCE_PATH" ]]; then
             mkdir -p "$DEST_PATH"
@@ -31,6 +47,7 @@ update_env_files() {
                     RELATIVE_PATH="${item#$SOURCE_PATH/}"
                     DEST_ITEM="$DEST_PATH/$RELATIVE_PATH"
 
+                    log "\t\t\t$item"
                     if [[ -d "$item" ]]; then
                         mkdir -p "$DEST_ITEM"
                     elif [[ -f "$item" ]]; then
@@ -50,32 +67,34 @@ update_env_files() {
 sync_files() {
     update_env_files
 
+    echo "$VERBOSE - $CP_FLAGS - $RSYNC_FLAGS"
+
     echo "Copying scripts"
-    cp ~/documents/scripts/* $WORKSTATION/scripts/
+    cp $CP_FLAGS ~/documents/scripts/* $WORKSTATION/scripts/
 
     echo "Copying vscode user settings"
-    cp ~/.config/Code/User/settings.json $WORKSTATION/resources/Code
-    cp ~/.config/Code/User/keybindings.json $WORKSTATION/resources/Code
+    cp $CP_FLAGS ~/.config/Code/User/settings.json $WORKSTATION/resources/Code
+    cp $CP_FLAGS ~/.config/Code/User/keybindings.json $WORKSTATION/resources/Code
 
     echo "Copying vscode-oss user settings"
-    cp ~/.config/Code\ -\ OSS/User/settings.json $WORKSTATION/resources/Code\ -\ OSS
-    cp ~/.config/Code\ -\ OSS/User/keybindings.json $WORKSTATION/resources/Code\ -\ OSS
+    cp $CP_FLAGS ~/.config/Code\ -\ OSS/User/settings.json $WORKSTATION/resources/Code\ -\ OSS
+    cp $CP_FLAGS ~/.config/Code\ -\ OSS/User/keybindings.json $WORKSTATION/resources/Code\ -\ OSS
 
     echo "Copying Cursor user settings"
-    cp ~/.config/Cursor/User/settings.json $WORKSTATION/resources/Cursor
-    cp ~/.config/Cursor/User/keybindings.json $WORKSTATION/resources/Cursor
+    cp $CP_FLAGS ~/.config/Cursor/User/settings.json $WORKSTATION/resources/Cursor
+    cp $CP_FLAGS ~/.config/Cursor/User/keybindings.json $WORKSTATION/resources/Cursor
 
     echo "Copying icons"
-    rsync -a ~/.local/share/icons/ $WORKSTATION/resources/icons
+    rsync $RSYNC_FLAGS ~/.local/share/icons/ $WORKSTATION/resources/icons
     echo "Copying themes"
-    rsync -a ~/.themes/ $WORKSTATION/resources/themes
+    rsync $RSYNC_FLAGS ~/.themes/ $WORKSTATION/resources/themes
 
     echo "Copying root files"
-    sudo cp /etc/sudoers $WORKSTATION/root/etc/sudoers
+    sudo cp $CP_FLAGS /etc/sudoers $WORKSTATION/root/etc/sudoers
     sudo chown $USER:$USER $WORKSTATION/root/etc/sudoers
-    sudo cp -r /usr/share/sddm $WORKSTATION/root/usr/share/
-    sudo cp /etc/systemd/logind.conf $WORKSTATION/root/etc/systemd/logind.conf
-    sudo cp /etc/pam.d/sddm $WORKSTATION/root/etc/pam.d/sddm
+    sudo cp $CP_FLAGS -r /usr/share/sddm $WORKSTATION/root/usr/share/
+    sudo cp $CP_FLAGS /etc/systemd/logind.conf $WORKSTATION/root/etc/systemd/logind.conf
+    sudo cp $CP_FLAGS /etc/pam.d/sddm $WORKSTATION/root/etc/pam.d/sddm
 
     cp $HOME/.gitconfig $HOME/personal
 
@@ -114,6 +133,13 @@ sync_diff() {
         git diff
     }
 }
+
+case "$1" in
+"-v" | "--verbose")
+    VERBOSE=true
+    shift
+    ;;
+esac
 
 case "$1" in
 "s" | "sync")

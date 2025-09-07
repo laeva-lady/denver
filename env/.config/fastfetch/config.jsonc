@@ -10,6 +10,11 @@
         "uptime",
         "terminalfont",
         "packages",
+        {
+            "type": "command",
+            "key": "Updates",
+            "text": "$(checkupdates 2>/dev/null | wc -l)"
+        },
         "wm",
         "terminal",
         "gpu",

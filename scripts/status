@@ -1,7 +1,16 @@
 #!/usr/bin/bash
 
+color_string() {
+    printf "\e[36m%s\e[0m" "$1"
+}
+
+check-host() {
+    printf "%20s : %s\n" "$(color_string User)" "$(whoami)"
+    printf "%20s : %s\n" "$(color_string Hostname)" "$(hostnamectl | awk "/Static hostname:/" | awk '{print $3}')"
+}
+
 check-uptime() {
-    printf "%15s : %s\n" "Uptime" "$(uptime -p | cut -d " " -f2-)"
+    printf "%20s : %s\n" "$(color_string Uptime)" "$(uptime -p | cut -d " " -f2-)"
 }
 
 check-packages() {
@@ -13,41 +22,50 @@ check-packages() {
         update="($output2 to update)"
     fi
 
-    printf "%15s : %s %s\n" "Packages" "$output" "$update"
+    printf "%20s : %s %s\n" "$(color_string Packages)" "$output" "$update"
 }
 
 check-disk-usage() {
-    printf "%15s :\n" "Disk"
+    # Find the maximum length of the disk name string for dynamic padding
+    max_len=$(lsblk -dno NAME,LABEL | awk '$1!=""{print $1,$2}' | while read disk label; do
+        name="$disk"
+        [ -n "$label" ] && name="$disk (Label: $label)"
+        echo ${#name}
+    done | sort -nr | head -n1)
+
+    # Add a buffer for aesthetic spacing
+    max_len=$((max_len + 1))
+
+    printf "%20s : \n" "$(color_string Disk)"
+
     lsblk -dno NAME,LABEL | awk '$1!=""{print $1,$2}' | while read disk label; do
         total=$(lsblk -bno SIZE /dev/$disk | head -n1)
-        # Sum used space for all partitions of this disk
         used=$(df -B1 --output=source,used 2>/dev/null | awk -v d="/dev/$disk" '$1 ~ ("^" d) {sum+=$2} END{print sum}')
 
         if [ -n "$used" ]; then
             pct=$((100 * used / total))
             name="$disk"
-            [ -n "$label" ] && name="$disk ($label)"
-
-            # Determine if this is the root disk
-            # root_part=$(df / --output=source | tail -1)
-            # root_disk=$(lsblk -no PKNAME "$root_part")
-
-            # main_disk=""
-            # [ "$disk" == "$root_disk" ] && main_disk="[OS Disk]"
-
-            # Collect mount points for all partitions on this disk
+            [ -n "$label" ] && name="$disk (Label: $label)"
             mounts=$(lsblk -ln -o NAME,MOUNTPOINT /dev/$disk | awk '$2!=""{printf "%s ", $2}' | sed 's/ $//')
 
-            # printf "%25s, %3s%% used, %9s %s\n" "$name" "$pct" "$main_disk" "$mounts"
-            printf "%20s%-20s, %2s%% used, mount point: %s\n" " " "$name" "$pct" "$mounts"
+            # Determine if this is the root disk
+            root_part=$(df / --output=source | tail -1)
+            root_disk=$(lsblk -no PKNAME "$root_part")
+
+            main_disk=""
+            [ "$disk" == "$root_disk" ] && main_disk="[OS Disk]"
+
+            # Use the calculated max_len for dynamic padding
+            printf "%15s%-*s %s %2s%% used, mount point: %s\n" " " "$max_len" "$name $main_disk" "" "$pct" "$mounts"
         fi
     done
 }
 
 check-keymap() {
-    printf "%15s : %s\n" "Keymap" "$(hyprctl devices -j | jq '.keyboards | .[] | select(.main == true) | .active_keymap' -r)"
+    printf "%20s : %s\n" "$(color_string Keymap)" "$(hyprctl devices -j | jq '.keyboards | .[] | select(.main == true) | .active_keymap' -r)"
 }
 
+check-host
 check-uptime
 check-packages
 check-keymap

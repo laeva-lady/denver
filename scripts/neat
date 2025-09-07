@@ -2,6 +2,7 @@
 
 aur=(
     cnijfilter2 # canon printer drivers
+    thorium-browser-bin
     evince-no-gnome
     fcitx5-mozc-ut
     gemini-cli-bin
