@@ -36,17 +36,18 @@ autocmd({ "BufWritePre" }, {
     command = [[%s/\s\+$//e]],
 })
 
-autocmd({ "BufEnter", "BufWritePost" }, {
-    group = kateGroup,
-    callback = function()
-        local hour = tonumber(os.date('%H'))
-        if hour >= 9 and hour < 22 then
-            vim.cmd.colorscheme("kanagawa-wave")
-        else
-            vim.cmd.colorscheme("kanagawa-dragon")
-        end
-    end,
-})
+-- autocmd({ "BufEnter", "BufWritePost" }, {
+--     group = kateGroup,
+--     callback = function()
+--         local hour = tonumber(os.date('%H'))
+--         if hour >= 9 and hour < 22 then
+--             vim.cmd.colorscheme("kanagawa-wave")
+--         else
+--             vim.cmd.colorscheme("kanagawa-dragon")
+--         end
+--     end,
+-- })
+vim.cmd.colorscheme("kanagawa-dragon")
 
 vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 1

@@ -1,4 +1,6 @@
 #!/usr/bin/bash
+stty -ixon
+trap 'stty ixon' EXIT
 
 while true; do
     make

@@ -122,7 +122,7 @@ tooltip * {
 
 #language,
 #battery {
-    color: @gray-dark;
+    color: @gray;
 }
 #custom-mode {
     color: @gray;

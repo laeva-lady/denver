@@ -9,8 +9,6 @@
     // "margin-top": 5,
     // "margin-bottom": 5,
     "modules-left": [
-        "battery",
-        "custom/mode",
         "custom/sep",
         "clock",
         "custom/sep",
@@ -23,7 +21,9 @@
     ],
     "modules-right": [
         "tray",
-        "custom/sep"
+        "custom/sep",
+        "custom/mode",
+        "battery"
     ],
     "custom/power": {
         "rotate": 90,
