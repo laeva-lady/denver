@@ -78,7 +78,7 @@ set("n", "<leader>re", removeRN)
 set("n", "<leader>sa", selectALL)
 set("n", "<leader>spq", "vapgq")
 set("n", "<leader>mk", ":make<CR>")
-set("n", "<leader>ch", ":e ~/chat.md<CR>")
+set("n", "<leader>ch", ":e ~/documents/chat.md<CR>")
 
 
 

@@ -10,22 +10,19 @@ alias chat="nvim ~/documents/chat.md"
 alias zxcv="nvim ~/documents/zxcv.md"
 alias fair="nvim ~/documents/notes/todo.md"
 
-# listing
 alias ls="eza -a1 -s type"
 
-# lazy ass bum
 alias e="exit"
+alias q="exit"
 alias s="cd"
 alias r="ranger"
 alias ..="cd .."
 alias rel="omz reload"
 
 alias rin="tmux-sessionizer $WORKSTATION"
-alias not="tmux-sessionizer $HOME/documents/notes/"
 alias whore="tmux-sessionizer $HOME"
 alias why="tmux-sessionizer $HOME/documents"
 
-# ok you lazy as fuck mf
 alias g="git"
 alias gs="git status"
 alias ga="git add ."
@@ -63,12 +60,6 @@ cursor() {
 battery() {
     upower -i /org/freedesktop/UPower/devices/battery_BAT0 |
         awk '/state:/ { s=$2 } /percentage:/ { p=$2 } END { print p " (" s ")" }'
-}
-
-dfz() {
-    local dir
-    dir=$(find ~/personal/ ~/devep -type d | fzf) || return
-    [ -n "$dir" ] && cd "$dir"
 }
 
 y() {

@@ -45,4 +45,4 @@ set("n", "<leader>spq", "vapgq")
 set("n", "<leader>k", ":make<CR>")
 
 
-set("n", "<leader>ch", ":e ~/personal/chat.md<CR>")
+set("n", "<leader>ch", ":e ~/documents/chat.md<CR>")
