@@ -32,10 +32,10 @@ set("n", "<C-o>", "<nop>")
 -- commands related to functions
 --
 local function removeRN()
-    vim.cmd([[%s/\r//g]])
+	vim.cmd([[%s/\r//g]])
 end
 local function selectALL()
-    vim.cmd([[normal! ggVG]])
+	vim.cmd([[normal! ggVG]])
 end
 set("n", "<leader>re", removeRN)
 set("n", "<leader>sa", selectALL)
@@ -46,3 +46,4 @@ set("n", "<leader>k", ":make<CR>")
 
 
 set("n", "<leader>ch", ":e ~/documents/chat.md<CR>")
+

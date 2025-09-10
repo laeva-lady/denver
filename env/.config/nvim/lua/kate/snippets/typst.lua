@@ -45,6 +45,13 @@ return {
     s({ trig = "mmt", snippetType = "autosnippet" },
         fmta([[$
   <>
-$ ]], { i(1) })
+$]], { i(1) })
     ),
+    s({ trig = "nmt", snippetType = "autosnippet" },
+        fmta(
+            [[#numbered-eq(
+  $
+    <>
+  $
+) <>]], { i(1), i(2) }))
 }

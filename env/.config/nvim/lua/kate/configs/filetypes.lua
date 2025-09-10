@@ -54,6 +54,15 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "odin", "go" },
+    callback = function()
+        -- keep tabs instead of spaces
+        vim.opt.softtabstop = nil
+        vim.opt.expandtab = false
+    end
+})
+
+vim.api.nvim_create_autocmd("FileType", {
     pattern = { "python" },
     callback = function()
         vim.opt.foldmethod = "indent"

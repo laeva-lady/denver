@@ -4,10 +4,17 @@ vim.opt.nu = true
 vim.opt.relativenumber = true
 
 vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
 vim.opt.smartindent = true
+
+local useTabs = true
+if (useTabs) then
+	vim.opt.softtabstop = nil
+	vim.opt.expandtab = false
+else
+	vim.opt.softtabstop = 4
+	vim.opt.expandtab = true
+end
 
 vim.opt.wrap = false
 
